@@ -26,15 +26,15 @@ const imageSchema= new Schema({
     },
     size:{
         type:Number
-    }/* ,
+    },
     created_at_:{
         type:Date,
         default:Date.now()
-    } */
+    }
     
-},
+}/* ,
 {
     timestamps:true
-});
+} */);
 
 module.exports= model('Images',imageSchema);
