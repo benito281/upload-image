@@ -21,7 +21,7 @@ router.post('/upload', async (req, res)=>{
 	image.filename=req.file.filename;
 	image.path= '/img/uploads/' + req.file.filename;
 	image.originalname= req.file.originalname;
-	image.minetype= req.file.minetype
+	image.mimetype= req.file.mimetype
 	image.size = req.file.size;
 	//console.log(image)
 	const insertImage = await image.save();
@@ -42,7 +42,7 @@ router.delete('/image/:id/delete',async (req, res)=>{
 	const {id}=req.params;
 	const deleteforID=await Image.findByIdAndDelete(id)
 	await unlink(path.resolve('./src/public/'+ deleteforID.path));
-	res.redirect('../')
+	res.redirect('/')
 	
 })
 
